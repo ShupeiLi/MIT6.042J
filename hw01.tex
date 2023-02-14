@@ -1,0 +1,172 @@
+\documentclass[12pt]{article}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{import}
+\usepackage{xurl}
+
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+\pagestyle{fancy}
+\lhead{\leftmark}
+\rhead{\thepage}
+\cfoot{}
+
+\begin{document}
+    \begin{center}
+        \Large \textbf{Problem Set 1}
+    \end{center}
+\section*{Problem 1}
+\subsection*{(a)}
+\begin{align*}
+    \exists x, S(x)\land A(x)
+\end{align*}
+
+\subsection*{(b)}
+\begin{align*}
+    \forall x, T(x)\land A(x)
+\end{align*}
+{\color{red}\textbf{Solution: }
+\begin{align*}
+    \forall x\in X: T(x) \land S(x) \Rightarrow A(x)
+\end{align*}
+}
+
+\subsection*{(c)}
+\begin{align*}
+    \neg \left( \exists x, T(x)\land \left( \neg A(x) \right)  \right) 
+\end{align*}
+{\color{blue}\textbf{Solution: }
+\begin{align*}
+    \neg\exists x\in X: T(x)\land \left( \neg A(x) \right) 
+\end{align*}
+}
+
+\subsection*{(d)}
+\begin{align*}
+    \exists x, y, z, x \neq y, y \neq z, x \neq z, T(u)\land \left( \neg S(u) \right), u\in \left\{x, y, z \right\} 
+\end{align*}
+{\color{blue}\textbf{Solution: }
+\begin{align*}
+    \exists x, y, z\in X: \left(\neg E(x, y)\land \neg E(y, z) \land\neg E(x, z) \right) \land T(x) \land \neg S(x) \land T(y) \land \neg S(y) \land T(z) \land \neg S(z)
+\end{align*}
+}
+
+\section*{Problem 2}
+\subsection*{(a)}
+\begin{center}
+\begin{tabular}{lllll}
+    \toprule
+    $P$ & $Q$ & $R$ & $\neg\left( P \lor \left( Q \land R \right)  \right)$ & $\left( \neg P \right)\land \left( \neg Q\lor \neg R \right)  $ \\
+    \midrule
+    T & T & T & F & F\\
+    T & T & F & F & F\\
+    T & F & T & F & F\\
+    F & T & T & F & F\\
+    T & F & F & F & F\\
+    F & T & F & T & T\\
+    F & F & T & T & T\\
+    F & F & F & T & T\\
+    \bottomrule
+\end{tabular}
+\end{center}
+Prove.
+
+\subsection*{(b)}
+\begin{center}
+\begin{tabular}{lllll}
+    \toprule
+    $P$ & $Q$ & $R$ & $\neg \left( P \land \left( Q \lor R \right)  \right) $ & $\neg P \lor \left( \neg Q \lor \neg R \right) $\\
+    \midrule
+    T & T & T & F & F\\
+    T & T & F & F & T\\
+    T & F & T & F & T\\
+    F & T & T & T & T\\
+    T & F & F & T & T\\
+    F & T & F & T & T\\
+    F & F & T & T & T\\
+    F & F & F & T & T\\
+    \bottomrule
+\end{tabular}
+\end{center}
+Disprove.
+
+\section*{Problem 3}
+\subsection*{(a)}
+\subsubsection*{(1)}
+\begin{align*}
+    A \land B = \neg \left( A \barwedge B \right) 
+\end{align*}
+
+\subsubsection*{(2)}
+\begin{align*}
+   A \lor B = \left( \neg A \right)  \barwedge \left( \neg B \right) 
+\end{align*}
+
+\subsubsection*{(3)}
+\begin{align*}
+    A \Rightarrow B = A \barwedge \left( A \barwedge B \right) 
+\end{align*}
+{\color{blue}\textbf{Solution: }
+\begin{align*}
+    A\Rightarrow B &= \left( \left( \neg A \right)\lor B \right)\\
+                   &= \neg \left( A\land \left( \neg B \right)  \right) \\
+                   &= A \barwedge \left( \neg B \right) 
+\end{align*}
+}
+
+\subsection*{(b)}
+\begin{align*}
+    \neg A = A \barwedge A
+\end{align*}
+
+\subsection*{(c)}
+\begin{align*}
+    \text{true} &= A \barwedge \left( A \barwedge A \right)\\ 
+    \text{false} &= \left( A \barwedge \left( A \barwedge A \right)  \right) \barwedge \left( A \barwedge \left( A \barwedge A \right)  \right)
+\end{align*}
+
+\section*{Problem 4}
+\begin{enumerate}
+    \item $12 \Rightarrow 4, 4, 4 \Rightarrow 4$.
+    \item $4 \Rightarrow 2, 2 \Rightarrow 2$.
+    \item $2 \Rightarrow 1, 1 \Rightarrow 1$.
+\end{enumerate}
+
+\section*{Problem 5}
+Prove: If $r^{1/5}$ is rational, $r$ is rational.
+
+$$r^{1 / 5} = a / b,$$
+ where $a$, $b$ are integers. We have
+
+ $$r = \left( r^{1 / 5} \right)^5 = a^5 / b^5 .$$
+
+ \section*{Problem 6}
+\begin{center}
+\begin{tabular}{lllll}
+    \toprule
+    $w$ & $x$ & $y$ & $w^2 + x^2 + y^2 = z^2$ & $z$\\
+    \midrule
+    odd & odd & odd & $\left(2i + 1 \right)^2 + \left( 2j + 1 \right)^2 + \left( 2k + 1 \right)^2$ & odd\\
+        &&& $= 4\left( i^2 + j^2 + k^2 + i + j + k \right) + 3 $ & \\
+    even & odd & odd & $\left(2i\right)^2 + \left( 2j + 1 \right)^2 + \left( 2k + 1 \right)^2$ & odd\\
+         &&& $=4\left( i^2 + j^2 + k^2 + j + k \right) + 2 $ &\\
+         &&& $=\text{even} + \text{odd} + \text{odd}$ &\\
+    odd & even & odd & - & odd\\
+    odd & odd & even & - & odd\\
+    odd & even & even & $\left( 2i + 1 \right)^2 + \left( 2j \right)^2 + \left( 2k \right)^k  $  & odd\\
+        &&& $=4\left(i^2 + j^2 + k^2 + i \right) + 1 $ &\\
+    even & odd & even & - & odd\\
+    even & even & odd & - & odd\\
+    even & even & even & $\left( 2i \right)^2 + \left( 2j \right)^2 + \left( 2k \right)^2$ & even\\
+         &&& $= 4\left( i^2 + j^2 + k^2 \right) $ &\\
+    \bottomrule
+\end{tabular}
+\end{center}
+\end{document}
